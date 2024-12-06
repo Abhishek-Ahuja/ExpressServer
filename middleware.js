@@ -14,6 +14,11 @@ function thirdMiddleware(req, res, next) {
     next();
 }
 
+function globalMiddleware(req, res, next){
+    console.log("Global Middleware is called");
+    next();
+}
+
 module.exports = {
-    firstMiddleware, secondMiddleware, thirdMiddleware
+    firstMiddleware, secondMiddleware, thirdMiddleware, globalMiddleware
 }

@@ -1,6 +1,6 @@
 
 const express = require("express");
-const {firstMiddleware, secondMiddleware, thirdMiddleware} = require("./middleware")
+const {firstMiddleware, secondMiddleware, thirdMiddleware, globalMiddleware} = require("./middleware")
 const server = express();
 // There are middlewares directly added without mentioning 
 // in main req and must run in order in which they are written
@@ -9,6 +9,9 @@ const server = express();
 //     next();
 // })
 
+
+//Global Middleware
+server.use(globalMiddleware)
 
 // server.get("/", (req, res, next) => {
 //     console.log("Second Middleware is callled.");
