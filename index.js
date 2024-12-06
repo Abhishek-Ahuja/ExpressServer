@@ -15,7 +15,13 @@ const server = express();
 //     next();
 // })
 
-server.get("/", firstMiddleware, secondMiddleware, thirdMiddleware, (req, res) => {
+// 1st Syntax
+// server.get("/", firstMiddleware, secondMiddleware, thirdMiddleware, (req, res) => {
+//     res.send("Express server")
+// })
+
+///2nd synntax
+server.get("/", [firstMiddleware, secondMiddleware, thirdMiddleware], (req, res) => {
     res.send("Express server")
 })
 
