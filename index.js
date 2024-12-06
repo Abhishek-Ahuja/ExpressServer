@@ -4,9 +4,17 @@ const express = require("express");
 const server = express();
 
 server.get("/", (req, res, next) => {
-    console.log("Middleware is callled.");
+    console.log("First Middleware is callled.");
     next();
-}, (req, res) => {
+})
+
+
+server.get("/", (req, res, next) => {
+    console.log("Second Middleware is callled.");
+    next();
+})
+
+server.get("/", (req, res) => {
     res.send("Express server")
 })
 
