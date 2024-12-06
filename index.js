@@ -3,7 +3,10 @@ const express = require("express");
 
 const server = express();
 
-server.get("/", (req, res) => {
+server.get("/", (req, res, next) => {
+    console.log("Middleware is callled.");
+    next();
+}, (req, res) => {
     res.send("Express server")
 })
 
